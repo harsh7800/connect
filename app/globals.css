@@ -12,6 +12,16 @@
   }
 }
 
+.scroll-remove {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+}
+
+.scroll-remove::-webkit-scrollbar {
+  display: none;
+}
+
 .cl-providerIcon__github {
   filter: invert(1);
 }
