@@ -40,7 +40,6 @@ const MeetingSetup = ({
           <Checkbox
             className="border-1 bg-white rounded-md px-3 py-3 "
             id="Toggle-Mic/Camera"
-            type="checkbox"
             checked={isMicCamTogledOn}
             onCheckedChange={(e: boolean) => {
               setIsMicCamTogledOn(e);
