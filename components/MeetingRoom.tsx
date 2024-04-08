@@ -57,15 +57,26 @@ const MeetingRoom = () => {
           <CallLayout />
         </div>
         <div
-          className={cn("h-[calc-(100vh-86px)] hidden", {
-            "show-block": showParticipants,
-          })}
+          className={cn(
+            "h-[calc-(100vh-86px)] hidden p-4 absolute right-5 bg-dark-3 rounded-lg z-10 ",
+            {
+              block: showParticipants,
+            }
+          )}
         >
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
       </div>
 
-      <div className="fixed bottom-0 flex w-full flex-wrap items-center justify-center gap-6">
+      <div className="fixed bottom-0 flex w-full flex-wrap items-center justify-center gap-6 pb-3">
+        <Button
+          className="text-white bg-blue-1"
+          onClick={() => {
+            navigator.clipboard?.writeText(window.location.href);
+          }}
+        >
+          Invite Link
+        </Button>
         <CallControls onLeave={() => router.push("/")} />
 
         <DropdownMenu>
@@ -89,7 +100,11 @@ const MeetingRoom = () => {
 
         <CallStatsButton />
 
-        <button onClick={() => setShowParticipants((prev) => !prev)}>
+        <button
+          onClick={() => {
+            setShowParticipants(!showParticipants);
+          }}
+        >
           <div className=" cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]  ">
             <Users size={20} className="text-white" />
           </div>
