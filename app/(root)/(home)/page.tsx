@@ -3,12 +3,11 @@ import UpComingCard from "@/components/UpComingCard";
 import React from "react";
 
 const Home = () => {
-  const currentDate = new Date();
-  const currentTime = currentDate.toLocaleTimeString("en-US", {
+  const currentTime = new Date().toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const currentDateFormatted = currentDate.toLocaleDateString("en-US", {
+  const currentDateFormatted = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",

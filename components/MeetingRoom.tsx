@@ -23,10 +23,12 @@ import { Button } from "./ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./loader";
+import { useToast } from "./ui/use-toast";
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
 
 const MeetingRoom = () => {
+  const { toast } = useToast();
   const searchParams = useSearchParams();
   const isPersonalRoom = !!searchParams.get("personal");
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
@@ -72,6 +74,7 @@ const MeetingRoom = () => {
         <Button
           className="text-white bg-blue-1"
           onClick={() => {
+            toast({ title: "Invite Link Copied" });
             navigator.clipboard?.writeText(window.location.href);
           }}
         >
